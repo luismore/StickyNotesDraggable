@@ -52,7 +52,7 @@ function createNoteElements(id, content, top = 50, left = 50) {
     element.style.top = `${top}px`;
     element.style.left = `${left}px`;
 
-    // Hacer que las notas sean de solo lectura inicialmente
+    // Hacer que las notas sean de solo lectura al iniciar
     element.setAttribute("readonly", true);
 
     // Eventos para habilitar edición con doble clic
@@ -61,13 +61,13 @@ function createNoteElements(id, content, top = 50, left = 50) {
         element.focus();
     });
 
-    // Guardar cambios al salir del foco
+    // Guardar cambios al salir de la nota
     element.addEventListener("blur", () => {
         element.setAttribute("readonly", true);
         updateNotes(id, element.value, parseInt(element.style.top), parseInt(element.style.left));
     });
 
-    // Eventos para eliminar nota (Ctrl + Click)
+    // Eventos para eliminar nota
     element.addEventListener("click", (event) => {
         if (event.ctrlKey) {
             const doDelete = confirm("Are you sure you want to delete this note?");
@@ -77,7 +77,7 @@ function createNoteElements(id, content, top = 50, left = 50) {
         }
     });
 
-    // Drag-and-drop
+    // Drag and drop
     element.addEventListener("mousedown", (event) => {
         event.preventDefault();
         let shiftX = event.clientX - element.getBoundingClientRect().left;
@@ -96,7 +96,7 @@ function createNoteElements(id, content, top = 50, left = 50) {
 
         document.addEventListener("mouseup", () => {
             document.removeEventListener("mousemove", onMouseMove);
-            updateNotes(id, element.value, parseInt(element.style.top), parseInt(element.style.left)); // Guardar nueva posición
+            updateNotes(id, element.value, parseInt(element.style.top), parseInt(element.style.left));
         }, { once: true });
     });
 
@@ -106,7 +106,7 @@ function createNoteElements(id, content, top = 50, left = 50) {
 function addNote() {
     const notes = getNotes();
     const noteObject = {
-        id: Date.now(), // Usamos una marca de tiempo como ID único
+        id: Date.now(),
         content: "",
         top: 50,
         left: 50,
