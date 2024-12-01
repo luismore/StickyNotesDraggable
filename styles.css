@@ -1,0 +1,112 @@
+*{
+    font-family: Cascadia Code;
+}
+
+body{
+    margin:0;
+    background:#665123;
+}
+
+.text-cabecera{
+    margin-left: 2vh;
+    margin-top: 4vh;
+}
+
+#app {
+    position: relative;
+    padding: 24px;
+}
+
+.notes {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+    resize: none;
+    font-family: Cascadia Code;
+    font-size: 16px;
+    cursor: grab;
+}
+
+.notes:active {
+    cursor: grabbing;
+}
+
+.add-note {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20%;
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.help{
+    position: fixed;
+    top: 20px;
+    right: 100px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20%;
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-note:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 1; /* Aparece encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
